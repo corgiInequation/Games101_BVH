@@ -1,15 +1,13 @@
 # Games101 Experiment 6
 
-## 实验内容
+## Experiment Content
 
-- 在实验五实现Whitted Style Ray tracing 的基础上，实现BVH加速。在实验五中，模型只有两个球面和一个平面，直接遍历判断是否相交即可。
-- 但是在实验六中，模型具有大量的三角形，如果直接暴力遍历，会耗时很久。
-- 因此，我们需要手动构造一颗BVH树。这个树是一颗二叉树，并且只有叶子结点会存储三角形。中间结点，一般是存储bounding box。在判断光线是否和场景相交的时候，本质上就是遍历一遍BVH树。
+- Based on the Whitted-style ray tracing implemented in Experiment 5, this task introduces BVH (Bounding Volume Hierarchy) acceleration. In Experiment 5, the scene only contained two spheres and one plane, so it was feasible to check intersections by brute force.
+- However, in Experiment 6, the model contains a large number of triangles. Brute-force traversal would be extremely time-consuming.
+- Therefore, we need to manually construct a BVH tree. This is a binary tree where only the leaf nodes store actual triangles. Internal nodes typically store bounding boxes. When checking whether a ray intersects with the scene, the algorithm essentially traverses the BVH tree to accelerate the process.
 
+## Experiment Result
 
-
-## 实验结果
-
-- <img src="C:\Users\i love china\AppData\Roaming\Typora\typora-user-images\image-20250511173148645.png" alt="image-20250511173148645" style="zoom:67%;" />
-- <img src="C:\Users\i love china\AppData\Roaming\Typora\typora-user-images\image-20250511173214715.png" alt="image-20250511173214715" style="zoom:50%;" />
-- 可以看到，对于上述形状较为复杂的图形，BVH加速后，也可以在5s内渲染出效果不错的图片。
+- <img src="https://github.com/corgiInequation/Games101_BVH/blob/main/image.png" alt="bvh-result-1" width="67%" />
+- <img src="https://github.com/corgiInequation/Games101_BVH/blob/main/image2.png" alt="bvh-result-2" width="50%" />
+- As shown, for complex shapes like the one above, BVH acceleration enables high-quality rendering within approximately 5 seconds.
